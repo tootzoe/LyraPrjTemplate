@@ -12,6 +12,7 @@ INCLUDEPATH += "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools
 #  #           "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.42.34433"
 #
 #
+INCLUDEPATH += $$UESRCROOT
 INCLUDEPATH += $$UESRCROOT/Runtime/AdpcmAudioDecoder/Module/Public
 INCLUDEPATH += $$UESRCROOT/Runtime/AdvancedWidgets/Public
 INCLUDEPATH += $$UESRCROOT/Runtime/Advertising/Advertising/Public
@@ -74,6 +75,7 @@ INCLUDEPATH += $$UESRCROOT/Runtime/DeveloperSettings/Public
 INCLUDEPATH += $$UESRCROOT/Developer/CollectionManager/Public
 INCLUDEPATH += $$UESRCROOT/Developer/SourceControl/Public
 INCLUDEPATH += $$UESRCROOT/Developer/DeveloperToolSettings/Classes
+INCLUDEPATH += $$UESRCROOT/Developer/AssetTools/Public
 INCLUDEPATH += $$UESRCROOT/Developer/ToolMenus/Public
 INCLUDEPATH += $$UESRCROOT/Runtime/Engine/Public
 INCLUDEPATH += $$UESRCROOT/Runtime/EngineMessages/Public
@@ -301,6 +303,7 @@ INCLUDEPATH += $$UESRCROOT/../Plugins/Experimental/StudioTelemetry/Source/Studio
 INCLUDEPATH += $$UESRCROOT/../Plugins/Experimental/AsyncMessageSystem/Source/AsyncMessageSystem/Public
 ##
 INCLUDEPATH += $$UESRCROOT/../Plugins/Runtime/GameplayAbilities/Source/GameplayAbilitiesEditor/Public
+INCLUDEPATH += $$UESRCROOT/../Plugins/Runtime/SignificanceManager/Source/SignificanceManager/Public
 
 ## if have problem , try to use 'Intermediate' folder files
 #
