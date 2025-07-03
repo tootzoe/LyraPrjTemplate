@@ -77,6 +77,7 @@ INCLUDEPATH += $$UESRCROOT/Developer/SourceControl/Public
 INCLUDEPATH += $$UESRCROOT/Developer/DeveloperToolSettings/Classes
 INCLUDEPATH += $$UESRCROOT/Developer/AssetTools/Public
 INCLUDEPATH += $$UESRCROOT/Developer/ToolMenus/Public
+INCLUDEPATH += $$UESRCROOT/Developer/MeshReductionInterface/Public
 INCLUDEPATH += $$UESRCROOT/Runtime/Engine/Public
 INCLUDEPATH += $$UESRCROOT/Runtime/EngineMessages/Public
 INCLUDEPATH += $$UESRCROOT/Runtime/EngineSettings/Public
@@ -111,6 +112,7 @@ INCLUDEPATH += $$UESRCROOT/Runtime/GameplayMediaEncoder/Public
 INCLUDEPATH += $$UESRCROOT/Runtime/GameplayTags/Public
 INCLUDEPATH += $$UESRCROOT/Runtime/GameplayTags/Classes
 INCLUDEPATH += $$UESRCROOT/Runtime/GameplayTasks/Public
+INCLUDEPATH += $$UESRCROOT/Runtime/GameplayTasks/Classes
 INCLUDEPATH += $$UESRCROOT/Runtime/GeometryCore/Public
 INCLUDEPATH += $$UESRCROOT/Runtime/GeometryFramework/Public
 INCLUDEPATH += $$UESRCROOT/Runtime/HardwareSurvey/Public
@@ -273,6 +275,10 @@ INCLUDEPATH += $$UESRCROOT/Editor/KismetCompiler/Public
 INCLUDEPATH += $$UESRCROOT/Editor/UnrealEd/Public
 INCLUDEPATH += $$UESRCROOT/Editor/UnrealEd/Classes
 INCLUDEPATH += $$UESRCROOT/Editor/Blutility/Public
+INCLUDEPATH += $$UESRCROOT/Editor/Blutility/Classes
+INCLUDEPATH += $$UESRCROOT/Editor/LevelEditor/Public
+INCLUDEPATH += $$UESRCROOT/Editor/UMGEditor/Public
+INCLUDEPATH += $$UESRCROOT/Editor/UMGEditor/Classes
 ##
 INCLUDEPATH += $$UESRCROOT/Runtime/Engine/Classes
 ## Editor
@@ -301,9 +307,20 @@ INCLUDEPATH += $$UESRCROOT/../Plugins/FX/Niagara/Source/Niagara/Public
 ##
 INCLUDEPATH += $$UESRCROOT/../Plugins/Experimental/StudioTelemetry/Source/StudioTelemetry/Public
 INCLUDEPATH += $$UESRCROOT/../Plugins/Experimental/AsyncMessageSystem/Source/AsyncMessageSystem/Public
+INCLUDEPATH += $$UESRCROOT/../Plugins/Experimental/Mover/Source/Mover/Public
+INCLUDEPATH += $$UESRCROOT/../Plugins/Experimental/MeshModelingToolsetExp/Source/MeshModelingToolsExp/Public
+INCLUDEPATH += $$UESRCROOT/../Plugins/Experimental/MeshModelingToolsetExp/Source/MeshModelingToolsEditorOnlyExp/Public
+
 ##
 INCLUDEPATH += $$UESRCROOT/../Plugins/Runtime/GameplayAbilities/Source/GameplayAbilitiesEditor/Public
 INCLUDEPATH += $$UESRCROOT/../Plugins/Runtime/SignificanceManager/Source/SignificanceManager/Public
+INCLUDEPATH += $$UESRCROOT/../Plugins/Runtime/MeshModelingToolset/Source/MeshModelingTools/Public
+INCLUDEPATH += $$UESRCROOT/../Plugins/Runtime/MeshModelingToolset/Source/ModelingComponents/Public
+INCLUDEPATH += $$UESRCROOT/../Plugins/Runtime/MeshModelingToolset/Source/ModelingComponentsEditorOnly/Public
+INCLUDEPATH += $$UESRCROOT/../Plugins/Runtime/MeshModelingToolset/Source/ModelingOperators/Public
+INCLUDEPATH += $$UESRCROOT/../Plugins/Runtime/MeshModelingToolset/Source/ModelingOperatorsEditorOnly/Public
+INCLUDEPATH += $$UESRCROOT/../Plugins/Runtime/MeshModelingToolset/Source/SkeletalMeshModifiers/Public
+
 
 ## if have problem , try to use 'Intermediate' folder files
 #

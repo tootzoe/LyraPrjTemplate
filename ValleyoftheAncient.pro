@@ -299,7 +299,6 @@ INCLUDEPATH += $$PLUGINSROOT3/$$PLUGINNAME21/Source/$$PLUGINMODULE21/Private
 ########### End Plugins Module 21 End
 ##
 
-
 HEADERS += \
     ../Plugins/GameFeatures/HoverDrone/Source/HoverDrone/Private/HoverDroneControlsComponent.h \
     ../Plugins/GameFeatures/HoverDrone/Source/HoverDrone/Public/HoverDroneMovementComponent.h \
@@ -447,6 +446,27 @@ SOURCES += \
     AncientGame/Input/PlayerControlsComponent.cpp
 
 DISTFILES += \
+    ../Config/DefaultCrossfader.ini \
+    ../Config/DefaultEditor.ini \
+    ../Config/DefaultEditorLayout.ini \
+    ../Config/DefaultEditorPerProjectUserSettings.ini \
+    ../Config/DefaultEditorSettings.ini \
+    ../Config/DefaultEngine.ini \
+    ../Config/DefaultGame.ini \
+    ../Config/DefaultGameplayTags.ini \
+    ../Config/DefaultInput.ini \
+    ../Config/DefaultScalability.ini \
+    ../Config/DefaultSoundscape.ini \
+    ../Config/DefaultUproar.ini \
+    ../Config/Localization/Game_Compile.ini \
+    ../Config/Localization/Game_Export.ini \
+    ../Config/Localization/Game_ExportDialogueScript.ini \
+    ../Config/Localization/Game_Gather.ini \
+    ../Config/Localization/Game_GenerateReports.ini \
+    ../Config/Localization/Game_Import.ini \
+    ../Config/Localization/Game_ImportDialogue.ini \
+    ../Config/Localization/Game_ImportDialogueScript.ini \
+    ../Config/Tags/BaseCharacterAbilityTags.ini \
     ../Plugins/GameFeatures/HoverDrone/HoverDrone.uplugin \
     ../Plugins/GameFeatures/HoverDrone/Source/HoverDrone/HoverDrone.Build.cs \
     ../Plugins/InstanceLevelCollision/InstanceLevelCollision.uplugin \
@@ -465,5 +485,4 @@ DISTFILES += \
     AncientGame.Target.cs \
     AncientGame/AncientGame.Build.cs \
     AncientGameEditor.Target.cs
-
 

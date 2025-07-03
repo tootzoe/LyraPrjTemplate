@@ -26,6 +26,10 @@ INCLUDEPATH += $$PRJMODULE2 $$PRJMODULE2/Public $$PRJMODULE2/Private
 ####
 
 
+### place this two line before other Defines.....
+include(defs.pri)
+include(inc.pri)
+
 #QMAKE_LFLAGS += -s
 #QMAKE_CXXFLAGS += "-std=c++11"
 #message($$system(date -I))
@@ -36,10 +40,13 @@ INCLUDEPATH += $$PRJMODULE2 $$PRJMODULE2/Public $$PRJMODULE2/Private
 #
 # this is true during development with unreal-editor...
 
-DEFINES += "WITH_EDITORONLY_DATA=1"
+
 
 ## this project only
-#DEFINES += PLATFORM_ANDROID
+DEFINES += PLATFORM_ANDROID
+DEFINES += "WITH_EDITORONLY_DATA=1"
+
+
 ##
 
 # we should follow UE project struct to include files, start from prj.Build.cs folder
@@ -48,8 +55,7 @@ DEFINES += "WITH_EDITORONLY_DATA=1"
 #
 #
 #
-include(defs.pri)
-include(inc.pri)
+
 #
 ## this project only
 ## INCLUDEPATH += $$UESRCROOT/Runtime/Renderer/Private
@@ -131,7 +137,7 @@ PLUGINMODULE7  = TitanUI
 DEFINES += "TITANUI_API=__declspec(dllexport)"
 #
 INCLUDEPATH += $$PLUGINSROOT/$$PLUGINMODULE7/Intermediate/Build/Win64/UnrealEditor/Inc/$$PLUGINMODULE7/UHT
-INCLUDEPATH += $$PLUGINSROOT/$$PLUGINMODULE7/
+INCLUDEPATH += $$PLUGINSROOT/$$PLUGINMODULE7
 INCLUDEPATH += $$PLUGINSROOT/$$PLUGINMODULE7/Source/Public
 INCLUDEPATH += $$PLUGINSROOT/$$PLUGINMODULE7/Source/Private
 ########### End Plugins Module 7 End
@@ -431,6 +437,17 @@ SOURCES += \
     TitanEditor/Validation/TitanEditorValidator.cpp
 
 DISTFILES += \
+    ../Config/Android/AndroidEngine.ini \
+    ../Config/Android/AndroidScalability.ini \
+    ../Config/DefaultDeviceProfiles.ini \
+    ../Config/DefaultEditor.ini \
+    ../Config/DefaultEditorPerProjectUserSettings.ini \
+    ../Config/DefaultEngine.ini \
+    ../Config/DefaultGame.ini \
+    ../Config/DefaultGameplayTags.ini \
+    ../Config/DefaultInput.ini \
+    ../Config/DefaultNetworkPrediction.ini \
+    ../Config/Mac/DefaultEngine.ini \
     ../Plugins/PhotoAlbum/PhotoAlbum.uplugin \
     ../Plugins/PhotoAlbum/Source/PhotoAlbum/PhotoAlbum.Build.cs \
     ../Plugins/TitanAbilities/Source/TitanAbilities/TitanAbilities.Build.cs \
@@ -449,4 +466,3 @@ DISTFILES += \
     Titan/Titan.Build.cs \
     TitanEditor.Target.cs \
     TitanEditor/TitanEditor.Build.cs
-
