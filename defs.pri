@@ -78,13 +78,13 @@ DEFINES += "Replicated" "ReplicatedUsing" "AllowedClasses"
 DEFINES += "NetMulticast" "Reliable" "Unreliable" "WithValidation"
 DEFINES += "ServiceResponse" "Server" "SealedEvent" "ServiceRequest"
 DEFINES += "BlueprintType" "Blueprintable" "NotBlueprintable" "BlueprintPure" "BlueprintImplementableEvent"
-DEFINES += "BlueprintAssignable" "BlueprintInternalUseOnly" "EditAnywhere" "EditDefaultsOnly"
-DEFINES += "VisibleAnywhere" "BlueprintReadOnly"
+DEFINES += "BlueprintAssignable" "BlueprintInternalUseOnly" "EditAnywhere" "EditDefaultsOnly" "EditInstanceOnly"
+DEFINES += "VisibleAnywhere" "BlueprintReadOnly" "VisibleDefaultsOnly"
 ##
-DEFINES += "Transient" "BindWidget" "notplaceable"
+DEFINES += "Transient" "BindWidget" "notplaceable" "Instanced"
 ##
 ##  Because this macro unfriend with QtCreater , so we redefined they to empty in this editor....
 DEFINES += "checkf" "check" "checkAtCompileTime" "checkCode" "checkfSlow" "checkLockFreePointerList"
 DEFINES += "checkName" "checkNoEntry" "checkNoRecursion" "checkNoReentry" "checkSlow" "checkStats"
 ## online subsystem
-DEFINES += "NAME_GameSession" "_Implementation"
+DEFINES += "NAME_GameSession" "NAME_None" "_Implementation"

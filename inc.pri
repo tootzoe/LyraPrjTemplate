@@ -320,6 +320,11 @@ INCLUDEPATH += $$UESRCROOT/../Plugins/Runtime/MeshModelingToolset/Source/Modelin
 INCLUDEPATH += $$UESRCROOT/../Plugins/Runtime/MeshModelingToolset/Source/ModelingOperators/Public
 INCLUDEPATH += $$UESRCROOT/../Plugins/Runtime/MeshModelingToolset/Source/ModelingOperatorsEditorOnly/Public
 INCLUDEPATH += $$UESRCROOT/../Plugins/Runtime/MeshModelingToolset/Source/SkeletalMeshModifiers/Public
+## DMX
+INCLUDEPATH += $$UESRCROOT/../Plugins/VirtualProduction/DMX/DMXEngine/Source/DMXRuntime/Public
+INCLUDEPATH += $$UESRCROOT/../Plugins/VirtualProduction/DMX/DMXFixtures/Source/DMXFixtures/Public
+INCLUDEPATH += $$UESRCROOT/../Plugins/VirtualProduction/DMX/DMXPixelMapping/Source/DMXPixelMappingCore/Public
+INCLUDEPATH += $$UESRCROOT/../Plugins/VirtualProduction/DMX/DMXProtocol/Source/DMXProtocol/Public
 
 
 ## if have problem , try to use 'Intermediate' folder files
