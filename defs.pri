@@ -80,6 +80,7 @@ DEFINES += "ServiceResponse" "Server" "SealedEvent" "ServiceRequest"
 DEFINES += "BlueprintType" "Blueprintable" "NotBlueprintable" "BlueprintPure" "BlueprintImplementableEvent"
 DEFINES += "BlueprintAssignable" "BlueprintInternalUseOnly" "EditAnywhere" "EditDefaultsOnly" "EditInstanceOnly"
 DEFINES += "VisibleAnywhere" "BlueprintReadOnly" "VisibleDefaultsOnly"
+DEFINES += "ForceUnits" "ClampMin" "ClampMax" "EditConditionHides" "EditCondition"
 ##
 DEFINES += "Transient" "BindWidget" "notplaceable" "Instanced"
 ##
