@@ -1,4 +1,19 @@
-
+#in xxxxx.Target.cs
+#way 1 :   AdditionalCompilerArguments += "-w";
+#//
+#way 2 :
+# // Example: Enable C++ exception handling
+# CppCompileEnvironment.AdditionalArguments += " /EHsc";
+#way 3:
+#PublicDefinitions.Add("MY_CUSTOM_DEFINE=1");
+# public ArenaBattleGASEditorTarget( TargetInfo Target) : base(Target)
+# {
+#         DefaultWarningLevel = WarningLevel.Warning;
+#         bWarningsAsErrors = false;
+#         CppCompileWarningSettings.UndefinedIdentifierWarningLevel = WarningLevel.Off;
+#         CppCompileWarningSettings.ShadowVariableWarningLevel = WarningLevel.Warning;
+#     ....
+# }
 
 #DEFINES += "$(NMakePreprocessorDefinitions)"
 DEFINES += "UE_GAME=1"
@@ -17,7 +32,7 @@ DEFINES += "USE_LOGGING_IN_SHIPPING=0"
 DEFINES += "UE_BUILD_MINIMAL=1"
 DEFINES += "WITH_EDITOR=1"
 DEFINES += "WITH_GAMEPLAY_DEBUGGER=1"
-DEFINES += "WITH_EDITORONLY_DATA=0"
+DEFINES += "WITH_EDITORONLY_DATA=1"
 DEFINES += "WITH_SERVER_CODE=1"
 DEFINES += "UBT_COMPILED_PLATFORM=Win64"
 DEFINES += "WIN32=1"
@@ -79,7 +94,7 @@ DEFINES += "NetMulticast" "Reliable" "Unreliable" "WithValidation"
 DEFINES += "ServiceResponse" "Server" "SealedEvent" "ServiceRequest"
 DEFINES += "BlueprintType" "Blueprintable" "NotBlueprintable" "BlueprintPure" "BlueprintImplementableEvent"
 DEFINES += "BlueprintAssignable" "BlueprintInternalUseOnly" "EditAnywhere" "EditDefaultsOnly" "EditInstanceOnly"
-DEFINES += "VisibleAnywhere" "BlueprintReadOnly" "VisibleDefaultsOnly"
+DEFINES += "VisibleAnywhere" "BlueprintReadOnly" "BlueprintReadWrite" "VisibleDefaultsOnly"
 DEFINES += "ForceUnits" "ClampMin" "ClampMax" "EditConditionHides" "EditCondition"
 ##
 DEFINES += "Transient" "BindWidget" "notplaceable" "Instanced"

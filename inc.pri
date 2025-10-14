@@ -283,6 +283,7 @@ INCLUDEPATH += $$UESRCROOT/Editor/UMGEditor/Classes
 INCLUDEPATH += $$UESRCROOT/Runtime/Engine/Classes
 ## Editor
 INCLUDEPATH += $$UESRCROOT/../Plugins/Editor/DataValidation/Source/DataValidation/Public
+INCLUDEPATH += $$UESRCROOT/../Plugins/Runtime/ModelViewViewModel/Source/ModelViewViewModel/Public
 
 ##
 INCLUDEPATH += $$UESRCROOT/../Plugins/Runtime/GameplayAbilities/Source/GameplayAbilities/Public
