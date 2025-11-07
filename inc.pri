@@ -299,7 +299,8 @@ INCLUDEPATH += $$UESRCROOT/../Plugins/Online/OnlineSubsystem/Source/Public
 INCLUDEPATH += $$UESRCROOT/../Plugins/Online/OnlineServices/Source/OnlineServicesInterface/Public
 INCLUDEPATH += $$UESRCROOT/../Plugins/Online/OnlineSubsystemUtils/Source/OnlineSubsystemUtils/Public
 INCLUDEPATH += $$UESRCROOT/../Plugins/Online/OnlineFramework/Source/Hotfix/Public
-
+## EOS
+INCLUDEPATH += $$UESRCROOT/ThirdParty/EOSSDK/SDK/Include
 
 ##
 ## Niagara
