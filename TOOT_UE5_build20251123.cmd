@@ -41,9 +41,6 @@ echo:
 IF /I "%1" == "cpp" goto :CREATE_EMPTY_MODULAR
 IF /I "%1" == "gen" goto :GEN_MSVC_SLN
 
-
-
-
 echo :: Win64 dev
 echo %UE_FOLDER%/Engine/Build/BatchFiles/RunUAT.bat BuildCookRun -nop4 -utf8output -nocompileeditor -skipbuildeditor -project="%PRJNAMEPATH%" -unrealexe="%UE_FOLDER%\Engine\Binaries\Win64\UnrealEditor-Cmd.exe" -platform=Win64 -SkipCookingErrorSummary  -SkipcookingEditorContent -build -cook -stage -package -pak -iostore -compressed -prereqs -clientconfig=Development -nocompile -nocompileuat -createreleaseversion="win64_1.0" -archive -archivedirectory="%PROJECT%tootbd/BaseRelease"
 echo:
@@ -52,19 +49,28 @@ echo %UE_FOLDER%/Engine/Build/BatchFiles/RunUAT.bat BuildCookRun -nop4 -utf8outp
 
 echo:
 
-
-
-
 echo :: Android dev
-echo %UE_FOLDER%/Engine/Build/BatchFiles/RunUAT.bat BuildCookRun -nop4 -utf8output -nocompileeditor -skipbuildeditor -project="%PRJNAMEPATH%" -unrealexe="%UE_FOLDER%\Engine\Binaries\Win64\UnrealEditor-Cmd.exe" -platform=Android -cookflavor=ASTC -SkipCookingErrorSummary  -SkipcookingEditorContent -build -cook -stage -package -pak -iostore -compressed -prereqs -clientconfig=Development -nocompile -nocompileuat -createreleaseversion="and_1.0" -archive -archivedirectory="%PROJECT%tootbd/BaseRelease"
+SET AND_FLAVOR=ASTC
+echo %UE_FOLDER%/Engine/Build/BatchFiles/RunUAT.bat BuildCookRun -nop4 -utf8output -nocompileeditor -skipbuildeditor -project="%PRJNAMEPATH%" -unrealexe="%UE_FOLDER%\Engine\Binaries\Win64\UnrealEditor-Cmd.exe" -platform=Android -cookflavor=%AND_FLAVOR% -SkipCookingErrorSummary  -SkipcookingEditorContent -build -cook -stage -package -pak -iostore -compressed -prereqs -clientconfig=Development -nocompile -nocompileuat -createreleaseversion="and_1.0" -archive -archivedirectory="%PROJECT%tootbd/BaseRelease"
 echo:
 echo ::  Android shipping
-echo %UE_FOLDER%/Engine/Build/BatchFiles/RunUAT.bat BuildCookRun -nop4 -utf8output -nocompileeditor -skipbuildeditor -project="%PRJNAMEPATH%" -unrealexe="%UE_FOLDER%\Engine\Binaries\Win64\UnrealEditor-Cmd.exe" -platform=Android -cookflavor=ASTC -SkipCookingErrorSummary  -SkipcookingEditorContent -build -cook -stage -package -pak -iostore -compressed -prereqs -clientconfig=Shipping -nodebuginfo -nocompile -nocompileuat -createreleaseversion="and_1.0" -archive -archivedirectory="%PROJECT%tootbd/BaseReleaseShipping"
+echo %UE_FOLDER%/Engine/Build/BatchFiles/RunUAT.bat BuildCookRun -nop4 -utf8output -nocompileeditor -skipbuildeditor -project="%PRJNAMEPATH%" -unrealexe="%UE_FOLDER%\Engine\Binaries\Win64\UnrealEditor-Cmd.exe" -platform=Android -cookflavor=%AND_FLAVOR% -SkipCookingErrorSummary  -SkipcookingEditorContent -build -cook -stage -package -pak -iostore -compressed -prereqs -clientconfig=Shipping -nodebuginfo -nocompile -nocompileuat -createreleaseversion="and_1.0" -archive -archivedirectory="%PROJECT%tootbd/BaseReleaseShipping"
+
+echo:
+
+
+echo :: Win64 modular DLC pak   [dev ,  replace arg: -dlcname=yourPluginModularName]
+echo %UE_FOLDER%/Engine/Build/BatchFiles/RunUAT.bat BuildCookRun -nop4 -utf8output -nocompileeditor -skipbuildeditor -project="%PRJNAMEPATH%" -unrealexe="%UE_FOLDER%\Engine\Binaries\Win64\UnrealEditor-Cmd.exe" -platform=Win64 -SkipCookingErrorSummary  -SkipcookingEditorContent  -cook -stage -pak -iostore -compressed -prereqs -clientconfig=Development -nocompile -nocompileuat -basedonreleaseversion="win64_1.0" -dlcname=Roma
+
+echo:
+
+echo :: Android modular DLC pak   [dev ,  replace arg: -dlcname=yourPluginModularName]
+echo %UE_FOLDER%/Engine/Build/BatchFiles/RunUAT.bat BuildCookRun -nop4 -utf8output -nocompileeditor -skipbuildeditor -project="%PRJNAMEPATH%" -unrealexe="%UE_FOLDER%\Engine\Binaries\Win64\UnrealEditor-Cmd.exe" -platform=Android -cookflavor=%AND_FLAVOR% -SkipCookingErrorSummary  -SkipcookingEditorContent  -cook -stage -pak -iostore -compressed -prereqs -clientconfig=Development -nocompile -nocompileuat -basedonreleaseversion="and_1.0" -dlcname=Roma
 
 echo:
 
 echo :: Run Android
-echo "        cd tootbd\BaseRelease\Android_ASTC ; ./Install_SelectionVM_3-arm64.bat           "
+echo   cmd.exe /c "chdir /d %~dp0tootbd\BaseRelease\Android_%AND_FLAVOR% && Install_%PRJNAME%-arm64.bat"
 
 echo:
 

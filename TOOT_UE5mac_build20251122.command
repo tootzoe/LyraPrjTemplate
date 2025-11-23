@@ -154,25 +154,31 @@ echo $UE_FOLDER/Engine/Build/BatchFiles/RunUAT.command BuildCookRun -nop4 -utf8o
 
 echo
 
-echo ::  install app for iOS  ,  ./ideviceinstaller -h  for more help , more tools path: $UE_FOLDER/Engine/Extras/ThirdPartyNotUE/libimobiledevice/Mac/
+echo ::  install app for iOS dev  ,  ./ideviceinstaller -h  for more help , more tools path: $UE_FOLDER/Engine/Extras/ThirdPartyNotUE/libimobiledevice/Mac/
 echo $UE_FOLDER/Engine/Extras/ThirdPartyNotUE/libimobiledevice/Mac/ideviceinstaller -i \"$UEPRJROOT/Packages/BaseReleaseShipping/IOS/ModularGame-IOS-Shipping.app\"
 echo
 
 echo :: Android dev
-echo $UE_FOLDER/Engine/Build/BatchFiles/RunUAT.command BuildCookRun -nop4 -utf8output -nocompileeditor -skipbuildeditor -project=\"$UPRO_PATHNAME\" -unrealexe=$UE_FOLDER/Engine/Binaries/Mac/UnrealEditor.app/Contents/MacOS/UnrealEditor -platform=Android -cookflavor=ASTC -SkipCookingErrorSummary  -SkipcookingEditorContent -build -cook -stage -package -pak -iostore -compressed -prereqs -clientconfig=Development -nocompile -nocompileuat -createreleaseversion="and_1.0" -archive -archivedirectory=\"$UEPRJROOT/Packages/BaseRelease\"
+AND_FLAVOR="ASTC"
+echo $UE_FOLDER/Engine/Build/BatchFiles/RunUAT.command BuildCookRun -nop4 -utf8output -nocompileeditor -skipbuildeditor -project=\"$UPRO_PATHNAME\" -unrealexe=$UE_FOLDER/Engine/Binaries/Mac/UnrealEditor.app/Contents/MacOS/UnrealEditor -platform=Android -cookflavor=$AND_FLAVOR -SkipCookingErrorSummary  -SkipcookingEditorContent -build -cook -stage -package -pak -iostore -compressed -prereqs -clientconfig=Development -nocompile -nocompileuat -createreleaseversion="and_1.0" -archive -archivedirectory=\"$UEPRJROOT/Packages/BaseRelease\"
 echo
 echo ::  Android shipping
-echo $UE_FOLDER/Engine/Build/BatchFiles/RunUAT.command BuildCookRun -nop4 -utf8output -nocompileeditor -skipbuildeditor -project=\"$UPRO_PATHNAME\" -unrealexe=$UE_FOLDER/Engine/Binaries/Mac/UnrealEditor.app/Contents/MacOS/UnrealEditor -platform=Android -cookflavor=ASTC -SkipCookingErrorSummary  -SkipcookingEditorContent -build -cook -stage -package -pak -iostore -compressed -prereqs -clientconfig=Shipping -nodebuginfo -nocompile -nocompileuat -createreleaseversion="and_1.0" -archive -archivedirectory=\"$UEPRJROOT/Packages/BaseReleaseShipping\"
+echo $UE_FOLDER/Engine/Build/BatchFiles/RunUAT.command BuildCookRun -nop4 -utf8output -nocompileeditor -skipbuildeditor -project=\"$UPRO_PATHNAME\" -unrealexe=$UE_FOLDER/Engine/Binaries/Mac/UnrealEditor.app/Contents/MacOS/UnrealEditor -platform=Android -cookflavor=AND_FLAVOR -SkipCookingErrorSummary  -SkipcookingEditorContent -build -cook -stage -package -pak -iostore -compressed -prereqs -clientconfig=Shipping -nodebuginfo -nocompile -nocompileuat -createreleaseversion="and_1.0" -archive -archivedirectory=\"$UEPRJROOT/Packages/BaseReleaseShipping\"
+
+echo
+
+echo ::  install app for Android dev
+echo $UEPRJROOT/Packages/BaseRelease/Android/install.sh
 
 echo
 
 echo ::iOS modular DLC pak   [dev ,  replace arg: -dlcname=yourPluginModularName]
-echo $UE_FOLDER/Engine/Build/BatchFiles/RunUAT.command BuildCookRun -nop4 -utf8output -nocompileeditor -skipbuildeditor -project=\"$UPRO_PATHNAME\" -unrealexe=$UE_FOLDER/Engine/Binaries/Mac/UnrealEditor.app/Contents/MacOS/UnrealEditor -platform=IOS -SkipCookingErrorSummary  -SkipcookingEditorContent  -cook -stage -pak -iostore -compressed -prereqs -clientconfig=Development -nocompile -nocompileuat -dlcname=Roma -basedonreleaseversion="ios_1.0"
+echo $UE_FOLDER/Engine/Build/BatchFiles/RunUAT.command BuildCookRun -nop4 -utf8output -nocompileeditor -skipbuildeditor -project=\"$UPRO_PATHNAME\" -unrealexe=$UE_FOLDER/Engine/Binaries/Mac/UnrealEditor.app/Contents/MacOS/UnrealEditor -platform=IOS -SkipCookingErrorSummary  -SkipcookingEditorContent  -cook -stage -pak -iostore -compressed -prereqs -clientconfig=Development -nocompile -nocompileuat -basedonreleaseversion="ios_1.0" -dlcname=Roma
 
 echo
 
 echo ::Android modular DLC pak  [dev ,  replace arg: -dlcname=yourPluginModularName]
-echo $UE_FOLDER/Engine/Build/BatchFiles/RunUAT.command BuildCookRun -nop4 -utf8output -nocompileeditor -skipbuildeditor -project=\"$UPRO_PATHNAME\" -unrealexe=$UE_FOLDER/Engine/Binaries/Mac/UnrealEditor.app/Contents/MacOS/UnrealEditor -platform=Android -cookflavor=ASTC -SkipCookingErrorSummary  -SkipcookingEditorContent  -cook -stage -pak -iostore -compressed -prereqs -clientconfig=Development -nocompile -nocompileuat -dlcname=Roma -basedonreleaseversion="and_1.0"
+echo $UE_FOLDER/Engine/Build/BatchFiles/RunUAT.command BuildCookRun -nop4 -utf8output -nocompileeditor -skipbuildeditor -project=\"$UPRO_PATHNAME\" -unrealexe=$UE_FOLDER/Engine/Binaries/Mac/UnrealEditor.app/Contents/MacOS/UnrealEditor -platform=Android -cookflavor=ASTC -SkipCookingErrorSummary  -SkipcookingEditorContent  -cook -stage -pak -iostore -compressed -prereqs -clientconfig=Development -nocompile -nocompileuat -basedonreleaseversion="and_1.0" -dlcname=Roma
 
 echo
 echo
