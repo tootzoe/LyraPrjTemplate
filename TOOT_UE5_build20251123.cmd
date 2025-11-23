@@ -49,11 +49,11 @@ echo %UE_FOLDER%/Engine/Build/BatchFiles/RunUAT.bat BuildCookRun -nop4 -utf8outp
 
 echo:
 
-echo :: Android dev
 SET AND_FLAVOR=ASTC
+echo :: Android dev , flavor=%AND_FLAVOR%
 echo %UE_FOLDER%/Engine/Build/BatchFiles/RunUAT.bat BuildCookRun -nop4 -utf8output -nocompileeditor -skipbuildeditor -project="%PRJNAMEPATH%" -unrealexe="%UE_FOLDER%\Engine\Binaries\Win64\UnrealEditor-Cmd.exe" -platform=Android -cookflavor=%AND_FLAVOR% -SkipCookingErrorSummary  -SkipcookingEditorContent -build -cook -stage -package -pak -iostore -compressed -prereqs -clientconfig=Development -nocompile -nocompileuat -createreleaseversion="and_1.0" -archive -archivedirectory="%PROJECT%tootbd/BaseRelease"
 echo:
-echo ::  Android shipping
+echo ::  Android shipping , flavor=%AND_FLAVOR%
 echo %UE_FOLDER%/Engine/Build/BatchFiles/RunUAT.bat BuildCookRun -nop4 -utf8output -nocompileeditor -skipbuildeditor -project="%PRJNAMEPATH%" -unrealexe="%UE_FOLDER%\Engine\Binaries\Win64\UnrealEditor-Cmd.exe" -platform=Android -cookflavor=%AND_FLAVOR% -SkipCookingErrorSummary  -SkipcookingEditorContent -build -cook -stage -package -pak -iostore -compressed -prereqs -clientconfig=Shipping -nodebuginfo -nocompile -nocompileuat -createreleaseversion="and_1.0" -archive -archivedirectory="%PROJECT%tootbd/BaseReleaseShipping"
 
 echo:
@@ -64,12 +64,12 @@ echo %UE_FOLDER%/Engine/Build/BatchFiles/RunUAT.bat BuildCookRun -nop4 -utf8outp
 
 echo:
 
-echo :: Android modular DLC pak   [dev ,  replace arg: -dlcname=yourPluginModularName]
+echo :: Android modular DLC pak   [dev , flavor=%AND_FLAVOR% , replace arg: -dlcname=yourPluginModularName]
 echo %UE_FOLDER%/Engine/Build/BatchFiles/RunUAT.bat BuildCookRun -nop4 -utf8output -nocompileeditor -skipbuildeditor -project="%PRJNAMEPATH%" -unrealexe="%UE_FOLDER%\Engine\Binaries\Win64\UnrealEditor-Cmd.exe" -platform=Android -cookflavor=%AND_FLAVOR% -SkipCookingErrorSummary  -SkipcookingEditorContent  -cook -stage -pak -iostore -compressed -prereqs -clientconfig=Development -nocompile -nocompileuat -basedonreleaseversion="and_1.0" -dlcname=Roma
 
 echo:
 
-echo :: Run Android
+echo :: Run Android  , flavor=%AND_FLAVOR%
 echo   cmd.exe /c "chdir /d %~dp0tootbd\BaseRelease\Android_%AND_FLAVOR% && Install_%PRJNAME%-arm64.bat"
 
 echo:
