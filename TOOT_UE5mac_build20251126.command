@@ -16,6 +16,9 @@ echo "Usage:"
 echo "$0 gen                ==> Generate xcworkspace files...."
 echo "$0 cpp              ==> Generate empyt c++ main modular for editor (useful for building plugins)...."
 echo
+echo "::SetEnv for UShell...."
+echo "source $UE_FOLDER/Engine/Extras/ushell/ushell.sh"
+echo
 
 UPRO_PATHNAME="$(ls $UEPRJROOT/*.uproject 2>/dev/null)"
 UPRO_BASENAME="$(BaseName $UPRO_PATHNAME .uproject)"
@@ -146,6 +149,19 @@ echo "\n\n"
 
 
 
+echo :: Mac dev
+echo $UE_FOLDER/Engine/Build/BatchFiles/RunUAT.command BuildCookRun -nop4 -utf8output -nocompileeditor -skipbuildeditor -project=\"$UPRO_PATHNAME\" -unrealexe=$UE_FOLDER/Engine/Binaries/Mac/UnrealEditor.app/Contents/MacOS/UnrealEditor -platform=Mac -SkipCookingErrorSummary  -SkipcookingEditorContent -build -cook -stage -package -pak -iostore -compressed -prereqs -clientconfig=Development -nocompile -nocompileuat -createreleaseversion="mac_1.0" -archive -archivedirectory=\"$UEPRJROOT/tootbd/BaseRelease\"
+echo
+echo ::  Mac shipping
+echo $UE_FOLDER/Engine/Build/BatchFiles/RunUAT.command BuildCookRun -nop4 -utf8output -nocompileeditor -skipbuildeditor -project=\"$UPRO_PATHNAME\" -unrealexe=$UE_FOLDER/Engine/Binaries/Mac/UnrealEditor.app/Contents/MacOS/UnrealEditor -platform=Mac -SkipCookingErrorSummary  -SkipcookingEditorContent -build -cook -stage -package -pak -iostore -compressed -prereqs -clientconfig=Shipping -nodebuginfo -nocompile -nocompileuat -createreleaseversion="mac_1.0" -archive -archivedirectory=\"$UEPRJROOT/tootbd/BaseReleaseShipping\"
+
+echo
+echo ::  Mac Run app [ dev ]
+echo    open \"$UEPRJROOT/tootbd/BaseRelease/Mac/$UPRO_BASENAME.app\" --args -game -log -windowed -resx=1280 -resy=720
+
+echo
+
+
 echo :: iOS dev
 echo $UE_FOLDER/Engine/Build/BatchFiles/RunUAT.command BuildCookRun -nop4 -utf8output -nocompileeditor -skipbuildeditor -project=\"$UPRO_PATHNAME\" -unrealexe=$UE_FOLDER/Engine/Binaries/Mac/UnrealEditor.app/Contents/MacOS/UnrealEditor -platform=IOS -SkipCookingErrorSummary  -SkipcookingEditorContent -build -cook -stage -package -pak -iostore -compressed -prereqs -clientconfig=Development -nocompile -nocompileuat -createreleaseversion="ios_1.0" -archive -archivedirectory=\"$UEPRJROOT/tootbd/BaseRelease\"
 echo
@@ -169,6 +185,12 @@ echo
 
 echo ::  install app for Android dev , flavor=$AND_FLAVOR
 echo $UEPRJROOT/tootbd/BaseRelease/Android_${AND_FLAVOR}/Install_${UPRO_BASENAME}_universal.command
+
+echo
+
+
+echo ::Mac modular DLC pak   [dev ,  replace arg: -dlcname=yourPluginModularName]
+echo $UE_FOLDER/Engine/Build/BatchFiles/RunUAT.command BuildCookRun -nop4 -utf8output -nocompileeditor -skipbuildeditor -project=\"$UPRO_PATHNAME\" -unrealexe=$UE_FOLDER/Engine/Binaries/Mac/UnrealEditor.app/Contents/MacOS/UnrealEditor -platform=Mac -SkipCookingErrorSummary  -SkipcookingEditorContent  -cook -stage -pak -iostore -compressed -prereqs -clientconfig=Development -nocompile -nocompileuat -basedonreleaseversion="mac_1.0" -dlcname=Roma
 
 echo
 

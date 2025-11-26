@@ -9,6 +9,7 @@ echo "++++++++========= Ver: 2025-11-22 ===++++++++++++++"
 echo  Current Dir:  %PROJECT%
 echo  UE_FOLDER Dir:  %UE_FOLDER%
 echo "++++++++=============================++++++++++++++"
+echo:
 
 
 ::  if exist "Source/*Editor.Target.cs" goto :init
@@ -35,7 +36,10 @@ echo:
 
 echo "++++==== UE build UnrealEditor Dlls for:  %PRJNAME%.uproject, Target=%TARGETNAME%   ====++++"
 echo:
-
+echo:  :: UShell tools
+SET USHELLSTR=%UE_FOLDER%/Engine/Extras/ushell/ushell.bat --project="%PRJNAMEPATH%"
+echo %USHELLSTR%
+echo:
 
 
 IF /I "%1" == "cpp" goto :CREATE_EMPTY_MODULAR
