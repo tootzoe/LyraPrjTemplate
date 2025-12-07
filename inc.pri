@@ -1,7 +1,7 @@
 #
 # modify this two folder location to fit your environment
 #
-UESRCROOT = "D:/UnrealEngine/Engine/Source"
+UESRCROOT = "/Users/zoezoe/UnrealEngine/Engine/Source"
 WINKITSROOT = "C:/Program Files (x86)/Windows Kits/10"
 #
 INCLUDEPATH += $$WINKITSROOT/include/10.0.22621.0/ucrt
@@ -268,6 +268,9 @@ INCLUDEPATH += $$UESRCROOT/Runtime/Windows/D3D11RHI/Public
 INCLUDEPATH += $$UESRCROOT/Runtime/Windows/WindowsPlatformFeatures/Public
 INCLUDEPATH += $$UESRCROOT/Runtime/XmlParser/Public
 ##
+INCLUDEPATH += $$UESRCROOT/Developer/Settings/Public
+
+##
 INCLUDEPATH += $$UESRCROOT/Editor/UnrealEd/Classes
 INCLUDEPATH += $$UESRCROOT/Editor/BlueprintGraph/Public
 INCLUDEPATH += $$UESRCROOT/Editor/BlueprintGraph/Classes
@@ -279,6 +282,13 @@ INCLUDEPATH += $$UESRCROOT/Editor/Blutility/Classes
 INCLUDEPATH += $$UESRCROOT/Editor/LevelEditor/Public
 INCLUDEPATH += $$UESRCROOT/Editor/UMGEditor/Public
 INCLUDEPATH += $$UESRCROOT/Editor/UMGEditor/Classes
+#
+INCLUDEPATH += $$UESRCROOT/Editor/SequencerCore/Public
+INCLUDEPATH += $$UESRCROOT/Editor/Sequencer/Public
+INCLUDEPATH += $$UESRCROOT/Editor/PropertyEditor/Public
+INCLUDEPATH += $$UESRCROOT/Editor/EditorStyle/Public
+
+
 ##
 INCLUDEPATH += $$UESRCROOT/Runtime/Engine/Classes
 ## Editor
@@ -305,6 +315,10 @@ INCLUDEPATH += $$UESRCROOT/ThirdParty/EOSSDK/SDK/Include
 ##
 ## Niagara
 INCLUDEPATH += $$UESRCROOT/../Plugins/FX/Niagara/Source/Niagara/Public
+INCLUDEPATH += $$UESRCROOT/../Plugins/FX/Niagara/Source/Niagara/Classes
+INCLUDEPATH += $$UESRCROOT/../Plugins/FX/Niagara/Source/NiagaraCore/Public
+INCLUDEPATH += $$UESRCROOT/../Plugins/FX/Niagara/Source/NiagaraShader/Public
+
 ##
 ##
 INCLUDEPATH += $$UESRCROOT/../Plugins/Experimental/StudioTelemetry/Source/StudioTelemetry/Public
