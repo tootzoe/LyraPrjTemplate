@@ -227,6 +227,25 @@ echo
 #  sh "$UE_FOLDER"/Engine/Build/BatchFiles/Mac/Build.sh -Target="$TARGETNAME Mac Development -TargetType=Editor -Progress -NoEngineChanges" -project="$UPRO_PATHNAME"   --  -nocompileuat -nop4 -utf8output -nocompileeditor -skipbuildeditor  -unrealexe=$UE_FOLDER/Engine/Binaries/Mac/UnrealEditor.app/Contents/MacOS/UnrealEditor
 echo $UE_FOLDER/Engine/Build/BatchFiles/Mac/Build.sh -Target="$TARGETNAME Mac Development -TargetType=Editor -Progress" -project="$UPRO_PATHNAME"   --  -nocompileuat -nop4 -utf8output -nocompileeditor -skipbuildeditor -unrealexe=$UE_FOLDER/Engine/Binaries/Mac/UnrealEditor.app/Contents/MacOS/UnrealEditor
 
+echo
+
+## TOOTzoe note: Don't know this check always work or not, need find out a correct method to avoid UE building system going crazy ....
+if grep -ir "MacTargetSettings" ./Config/DefaultEngine.ini > /dev/null 2>&1
+then
+   echo
+else
+   echo
+   echo
+   echo
+   echo "----------- !!!! Warning !!!! -------------  "
+   echo
+   echo "            No  MacTargetSettings  found in  Config/DefaultEngine.ini ,  you should use a apropriate Config folder for this project !!!!!!!! "
+   echo
+   echo
+   echo
+   echo
+fi
+
 fi
 
 
@@ -243,12 +262,27 @@ echo
 
 
 #  add this plug for turnning pure bllueprint project to modular project
-#       ,
-#	{
-#		"Name": "GameplayStateTree",
-#		"Enabled": true
-#	}
-
+#
+#        "Modules": [
+#                {
+#                        "Name": "TestUShellIos",
+#                        "Type": "Runtime",
+#                        "LoadingPhase": "Default"
+#                }
+#        ],
+#       "Plugins": [
+#               {
+#                       "Name": "ModelingToolsEditorMode",
+#                       "Enabled": true,
+#                       "TargetAllowList": [
+#                               "Editor"
+#                       ]
+#               },
+#               {
+#                       "Name": "OnlineSubsystemEOS",
+#                       "Enabled": true
+#               }
+#       ]
 
 exit 0
 

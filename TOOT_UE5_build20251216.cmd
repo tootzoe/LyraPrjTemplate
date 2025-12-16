@@ -79,7 +79,7 @@ echo   cmd.exe /c "chdir /d %~dp0tootbd\BaseRelease\Android_%AND_FLAVOR% && Inst
 echo:
 
 echo :: Run Win64
-echo "          tootbd/BaseRelease/Windows/%PRJNAME%.exe -WINDOWED -ResX=1280 -ResY=720           "
+echo "          tootbd/BaseRelease/Windows/%PRJNAME%.exe  -log -WINDOWED -ResX=1280 -ResY=720           "
 
 
 echo:
@@ -234,9 +234,27 @@ if %ERRORLEVEL% NEQ 0   pause
 EXIT /b 0
 
 
+
 ::  add this plug for turnning pure bllueprint project to modular project
-::       ,
-::	{
-::		"Name": "GameplayStateTree",    // adding "CommonUI" also works
-::		"Enabled": true
-::	}
+::
+::        "Modules": [
+::                {
+::                        "Name": "TestUShellIos",
+::                        "Type": "Runtime",
+::                        "LoadingPhase": "Default"
+::                }
+::        ],
+::       "Plugins": [
+::               {
+::                       "Name": "ModelingToolsEditorMode",
+::                       "Enabled": true,
+::                       "TargetAllowList": [
+::                               "Editor"
+::                       ]
+::               },
+::               {
+::                       "Name": "OnlineSubsystemEOS",
+::                       "Enabled": true
+::               }
+::       ]
+::
