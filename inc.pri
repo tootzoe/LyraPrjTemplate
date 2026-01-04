@@ -1,6 +1,8 @@
 #
 # modify this two folder location to fit your environment
 #
+##
+#UESRCROOT = "C:/UnrealEngine/Engine/Source"
 UESRCROOT = "/Users/zoezoe/UnrealEngine/Engine/Source"
 WINKITSROOT = "C:/Program Files (x86)/Windows Kits/10"
 #
@@ -341,6 +343,9 @@ INCLUDEPATH += $$UESRCROOT/../Plugins/VirtualProduction/DMX/DMXEngine/Source/DMX
 INCLUDEPATH += $$UESRCROOT/../Plugins/VirtualProduction/DMX/DMXFixtures/Source/DMXFixtures/Public
 INCLUDEPATH += $$UESRCROOT/../Plugins/VirtualProduction/DMX/DMXPixelMapping/Source/DMXPixelMappingCore/Public
 INCLUDEPATH += $$UESRCROOT/../Plugins/VirtualProduction/DMX/DMXProtocol/Source/DMXProtocol/Public
+## Gameplay
+INCLUDEPATH += $$UESRCROOT/../Plugins/Runtime/GameplayStateTree/Source/GameplayStateTreeModule/Public
+INCLUDEPATH += $$UESRCROOT/../Plugins/Runtime/StateTree/Source/StateTreeModule/Public
 
 
 ## if have problem , try to use 'Intermediate' folder files

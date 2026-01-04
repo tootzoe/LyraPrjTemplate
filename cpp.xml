@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="utf-8"?>
+<snippets>
+<snippet group="C++" trigger="main" id="cpp_main">int main(int argc, char *argv[])
+{
+    $$
+    return 0;
+}
+</snippet>
+<snippet group="C++" trigger="class" id="cpp_genericclass">class $name$
+{
+public:
+    $name$() {}
+};</snippet>
+<snippet group="C++" trigger="class" id="cpp_qobjectclass" complement="derived from QObject">class $name$ : public QObject
+{
+    Q_OBJECT
+public:
+    $name$() {}
+    virtual ~$name$() {}
+};</snippet>
+<snippet group="C++" trigger="class" id="cpp_qwidgetclass" complement="derived from QWidget">class $name$ : public QWidget
+{
+    Q_OBJECT
+public:
+    $name$() {}
+    virtual ~$name$() {}
+};</snippet>
+<snippet group="C++" trigger="class" id="cpp_classtemplate" complement="template">template &lt;typename $T$&gt;
+class $name$
+{
+public:
+    $name$() {}
+};</snippet>
+<snippet group="C++" trigger="do" id="cpp_do">do {
+    $$
+} while ($condition$);</snippet>
+<snippet group="C++" trigger="else" id="cpp_else" >else {
+    $$
+}</snippet>
+<snippet group="C++" trigger="else" id="cpp_elsewithif" complement="with if">else if ($condition$) {
+    $$
+}</snippet>
+<snippet group="C++" trigger="for" id="cpp_for">for (uint32 $i$ = 0; $i$ &lt; $total$; ++$i$) {
+    $$
+}</snippet>
+<snippet group="C++" trigger="for" id="cpp_for_rangebased" complement="range-based">for ($var$ : $container$) {
+    $$
+}</snippet>
+<snippet group="C++" trigger="foreach" id="cpp_foreach">foreach ($int$ $var$ : $container$) {
+    $$
+}</snippet>
+<snippet group="C++" trigger="for" id="cpp_for_container" complement="container">for (const auto&amp; $it$ : $container$) {
+$$
+}</snippet>
+
+<snippet group="C++" trigger="if" id="cpp_if">if ($condition$) {
+    $$
+}</snippet>
+<snippet group="C++" trigger="if" id="cpp_ifandelse" complement="and else">if ($condition$) {
+    $$
+} else {
+}</snippet>
+<snippet group="C++" trigger="lic" id="license-configured" complement="" removed="false" modified="false">%{Cpp:LicenseTemplate}
+$$</snippet>
+<snippet group="C++" trigger="licbsd" id="license-bsd" complement="" removed="false" modified="false">/**
+@if ('%{CurrentDocument:Project:Name}' !== '')
+ ** This file is part of the %{CurrentDocument:Project:Name} project.
+@endif
+@if ('%{Env:QTC_COPYRIGHT_USER}' === '' || '%{Env:QTC_COPYRIGHT_EMAIL}' === '')
+ ** Copyright %{CurrentDate:yyyy} $copyright_user$ &lt;$copyright_email$&gt;.
+@else
+ ** Copyright %{CurrentDate:yyyy} %{Env:QTC_COPYRIGHT_USER} &lt;%{Env:QTC_COPYRIGHT_EMAIL}&gt;.
+@endif
+ ** All rights reserved.
+ **
+ ** Redistribution and use in source and binary forms, with or without
+ ** modification, are permitted provided that the following conditions are
+ ** met:
+ **
+ ** 1. Redistributions of source code must retain the above copyright notice,
+ **    this list of conditions and the following disclaimer.
+ **
+ ** 2. Redistributions in binary form must reproduce the above copyright
+ **    notice, this list of conditions and the following disclaimer in the
+ **    documentation and/or other materials provided with the distribution.
+ **
+ ** THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND ANY
+ ** EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ ** WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ ** DISCLAIMED. IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE FOR ANY
+ ** DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ ** (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ ** SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+ ** CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+ ** LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+ ** OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+ ** SUCH DAMAGE.
+ **/
+
+$$</snippet>
+<snippet group="C++" trigger="licgpl" id="license-gpl" complement="" removed="false" modified="false">/**
+@if ('%{CurrentDocument:Project:Name}' !== '')
+ ** This file is part of the %{CurrentDocument:Project:Name} project.
+@endif
+@if ('%{Env:QTC_COPYRIGHT_USER}' === '' || '%{Env:QTC_COPYRIGHT_EMAIL}' === '')
+ ** Copyright %{CurrentDate:yyyy} $copyright_user$ &lt;$copyright_email$&gt;.
+@else
+ ** Copyright %{CurrentDate:yyyy} %{Env:QTC_COPYRIGHT_USER} &lt;%{Env:QTC_COPYRIGHT_EMAIL}&gt;.
+@endif
+ **
+ ** This program is free software: you can redistribute it and/or modify
+ ** it under the terms of the GNU General Public License as published by
+ ** the Free Software Foundation, either version 3 of the License, or
+ ** (at your option) any later version.
+ **
+ ** This program is distributed in the hope that it will be useful,
+ ** but WITHOUT ANY WARRANTY; without even the implied warranty of
+ ** MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ ** GNU General Public License for more details.
+ **
+ ** You should have received a copy of the GNU General Public License
+ ** along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
+ **/
+
+$$</snippet>
+<snippet group="C++" trigger="liclgpl" id="license-lgpl" complement="" removed="false" modified="false">/**
+@if ('%{CurrentDocument:Project:Name}' !== '')
+ ** This file is part of the %{CurrentDocument:Project:Name} project.
+@endif
+@if ('%{Env:QTC_COPYRIGHT_USER}' === '' || '%{Env:QTC_COPYRIGHT_EMAIL}' === '')
+ ** Copyright %{CurrentDate:yyyy} $copyright_user$ &lt;$copyright_email$&gt;.
+@else
+ ** Copyright %{CurrentDate:yyyy} %{Env:QTC_COPYRIGHT_USER} &lt;%{Env:QTC_COPYRIGHT_EMAIL}&gt;.
+@endif
+ **
+ ** This program is free software: you can redistribute it and/or modify
+ ** it under the terms of the GNU Lesser General Public License as
+ ** published by the Free Software Foundation, either version 3 of the
+ ** License, or (at your option) any later version.
+ **
+ ** This program is distributed in the hope that it will be useful,
+ ** but WITHOUT ANY WARRANTY; without even the implied warranty of
+ ** MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ ** GNU Lesser General Public License for more details.
+ **
+ ** You should have received a copy of the GNU Lesser General Public License
+ ** along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
+ **/
+
+$$</snippet>
+<snippet group="C++" trigger="licqtc" id="license-qtc" complement="" removed="false" modified="false">/****************************************************************************
+**
+@if ('%{Env:QTC_COPYRIGHT_USER}' === '' || '%{Env:QTC_COPYRIGHT_EMAIL}' === '')
+** Copyright (C) %{CurrentDate:yyyy} $copyright_user$ &lt;$copyright_email$&gt;.
+@else
+** Copyright (C) %{CurrentDate:yyyy} %{Env:QTC_COPYRIGHT_USER} &lt;%{Env:QTC_COPYRIGHT_EMAIL}&gt;.
+@endif
+** Contact: https://www.qt.io/licensing/
+**
+** This file is part of %{CurrentDocument:Project:Name}
+**
+** Commercial License Usage
+** Licensees holding valid commercial Qt licenses may use this file in
+** accordance with the commercial license agreement provided with the
+** Software or, alternatively, in accordance with the terms contained in
+** a written agreement between you and The Qt Company. For licensing terms
+** and conditions see https://www.qt.io/terms-conditions. For further
+** information use the contact form at https://www.qt.io/contact-us.
+**
+** GNU General Public License Usage
+** Alternatively, this file may be used under the terms of the GNU
+** General Public License version 3 as published by the Free Software
+** Foundation with exceptions as appearing in the file LICENSE.GPL3-EXCEPT
+** included in the packaging of this file. Please review the following
+** information to ensure the GNU General Public License requirements will
+** be met: https://www.gnu.org/licenses/gpl-3.0.html.
+**
+****************************************************************************/
+
+$$</snippet>
+<snippet group="C++" trigger="namespace" id="cpp_namespace">namespace $name$ {
+    $$
+}</snippet>
+<snippet group="C++" trigger="namespace" id="cpp_namespace_with_comment" complement="with closing brace comment">namespace $name$ {
+    $$
+} // namespace $name$</snippet>
+<snippet group="C++" trigger="try" id="cpp_trycatch" complement="and catch">try {
+    $$
+} catch (...) {
+}</snippet>
+<snippet group="C++" trigger="using" id="cpp_usingnamespace" complement="namespace">using namespace $name$;</snippet>
+<snippet group="C++" trigger="while" id="cpp_while">while ($condition$) {
+    $$
+}</snippet>
+<snippet group="C++" trigger="struct" id="cpp_genericstruct">struct $name$
+{
+    $name$() {}
+};</snippet>
+<snippet group="C++" trigger="struct" id="cpp_structtemplate" complement="template">template &lt;typename $T$&gt;
+struct $name$
+{
+    $name$() {}
+};</snippet>
+<snippet group="C++" trigger="template" id="cpp_template_func" complement="function">template&lt;class T> T* $funcName$( int $arg1$ );</snippet>
+
+<snippet group="C++" trigger="switch" id="cpp_switch">switch ($control$) {
+case $value$:
+    $$
+    break;
+default:
+    break;
+}</snippet>
+<snippet group="C++" trigger="Q_PROPERTY" id="cpp_q_property" complement="(type name READ name WRITE setName NOTIFY nameChanged FINAL)">Q_PROPERTY($type$ $name$ READ $name$ WRITE set$name:c$ NOTIFY $name$Changed FINAL)</snippet>
+
+
+<snippet group="C++" trigger="TEXT" id="UE_TEXT" complement="">TEXT("$TXT$")</snippet>
+<snippet group="C++" trigger="UE_LOG" id="UE_LOG" complement="">UE_LOG($LogTemp$, $Warning$, TEXT("$msg$....%hs") , __func__);</snippet>
+<snippet group="C++" trigger="UE_CLOG" id="UE_CLOG" complement="">UE_CLOG($Cond$ == true , $LogTemp$, Warning, TEXT("$msg$....%hs") , __func__);</snippet>
+<snippet group="C++" trigger="Print" id="UE_PRINT_SCR" complement="On Screen">if( GEngine ){
+    GEngine->AddOnScreenDebugMessage(-1, 16.f, FColor::$Cyan$, FString::Printf(TEXT("$%hs....$") , $__func__$) );
+}</snippet>
+<snippet group="C++" trigger="FString" id="UE_FStrPrint" complement="Print">FString::Printf("....$msg$....%$s$", $val$)</snippet>
+
+<snippet group="C++" trigger="UFUNCTION" id="UE_UFUNCTION" complement="">UFUNCTION($BlueprintCallable$, Category = "$TOOT$")</snippet>
+<snippet group="C++" trigger="TFunction" id="UE_TFUNCTION" complement="">TFunction&lt;void($bool$)>$FuncName$Cb = [&amp;]($bool$ $isSuccess$){ $FuncCode$;};</snippet>
+<snippet group="C++" trigger="meta" id="UE_meta" complement="">meta = ($WorldContext="WorldContextObj"$)</snippet>
+
+
+
+<snippet group="C++" trigger="Delegate" id="UE_DynMD_1P" complement="dyn OneParam">DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(F$Evt$Signature, $ParamType$, $ParamName$);</snippet>
+<snippet group="C++" trigger="Delegate" id="UE_DynMD_2P" complement="dyn TwoParams">DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(F$Evt$Signature, $ParamType1$, $ParamName1$, $ParamType2$, $ParamName2$);</snippet>
+<snippet group="C++" trigger="Delegate" id="UE_Sparse_1P" complement="dyn Sparse OneParam">DECLARE_DYNAMIC_MULTICAST_SPARSE_DELEGATE_OneParam(F$Evt$Signature, $OwningClass$, $Evt$Delegate, $int32$, $ParamName$);</snippet>
+<snippet group="C++" trigger="Delegate" id="UE_Multicast_1P" complement="multi OneParam">DECLARE_MULTICAST_DELEGATE_OneParam(F$Evt$Signature, $ParamType1$ /*Para1*/);</snippet>
+<snippet group="C++" trigger="Delegate" id="UE_Multicast_2P" complement="multi TwoParam">DECLARE_MULTICAST_DELEGATE_TwoParams(F$Evt$Signature, $ParamType1$ /*Para1*/, $ParamType2$ /*Para2*/);</snippet>
+<snippet group="C++" trigger="Delegate" id="UE_Deleg_RetVal" complement="RetVal">DECLARE_DELEGATE_RetVal($RetValType$, F$Evt$Signature);</snippet>
+
+
+
+<snippet group="C++" trigger="Create" id="UE_CreateDefaultSub" complement="DefaultSubobject">CreateDefaultSubobject&lt;$cls$>(TEXT("$CompName$"));</snippet>
+<snippet group="C++" trigger="NewObject" id="UE_NEWOBJECT" complement="">NewObject&lt;$cls$>(this, MakeUniqueObjectName(this, $cls$::StaticClass()));</snippet>
+<snippet group="C++" trigger="LoadObject" id="UE_LoadObject" complement="">LoadObject&lt;$cls$>($this$, TEXT("$/Game/Clz/Clzname.Clzname$"));</snippet>
+<snippet group="C++" trigger="Object" id="UE_ObjectFinder" complement="Finder">static ConstructorHelpers::FObjectFinder&lt;$cls$> $tmp$Finder(TEXT("AssertType'/Game/path/Clzname.Clzname'")); // only called inside constructor</snippet>
+
+
+<snippet group="C++" trigger="checkf" id="UE_checkf" complement="">checkf($val$ , TEXT("$val$ invalid...."));</snippet>
+<snippet group="C++" trigger="Cast" id="UE_Cast" complement="">Cast&lt;$cls$>($target$)</snippet>
+<snippet group="C++" trigger="Cast" id="UE_CastChecked" complement="Checked">CastChecked&lt;$cls$>($target$)</snippet>
+
+<snippet group="C++" trigger="UPROPERTY" id="UE_UPROPERTY" complement="">UPROPERTY($BlueprintReadWrite$, Category="$TOOT$")</snippet>
+
+<snippet group="C++" trigger="Create" id="UE_CREATEUOBJECT" complement="UObject">CreateUObject(this, &amp;ThisClass::$HandleFunc$)</snippet>
+
+<snippet group="C++" trigger="Create" id="UE_LAMBDA1" complement="WeakLambda">CreateWeakLambda(this,
+                                       [this]($bool$ $para1$){
+                                       $$
+                                       }
+</snippet>
+
+
+
+<snippet group="C++" trigger="DrawDebug" id="UE_DrawDebugPoint" complement="Point"> DrawDebugPoint(GetWorld(), FVector(0.f, 0.f, 0.f), 10.f, FColor::Cyan, true);</snippet>
+<snippet group="C++" trigger="DrawDebug" id="UE_DrawDebugBox" complement="Box">DrawDebugBox(GetWorld(), FVector(0.f, 0.f, 0.f), FVector(200.f, 400.f ,300.f), FColor::Red , false, 99.f ,0 , 4.f );</snippet>
+<snippet group="C++" trigger="DrawDebug" id="UE_DrawDebugLine" complement="Line">DrawDebugLine(GetWorld(),FVector(0.f, 0.f, 0.f), FVector(200.f, 400.f, 300.f), FColor::Green, true, -1.f, 0, 2.f);</snippet>
+<snippet group="C++" trigger="DrawDebug" id="UE_DrawDebugSphere" complement="Sphere">DrawDebugSphere(GetWorld(), FVector(0.f, 0.f, 0.f) , 200.f, 16, FColor::Blue, true, -1.f ,0, 2.f );</snippet>
+<snippet group="C++" trigger="DrawDebug" id="UE_DrawDebugString" complement="String">DrawDebugString(GetWorld(), FVector(0.f, 0.f, 440.f) , TEXT("This is some txt...."),
+                                                                                     this , FColor::White, 99.f, false, 64.f); //needs HUD </snippet>
+<snippet group="C++" trigger="DrawDebug" id="UE_DrawDebugCoord" complement="Coord">DrawDebugCoordinateSystem(GetWorld(), FVector(0.f, 0.f, 0.f) , FRotator(0.f, 0.f, 0.f), 100.f, false, 99.f , 0, 2.f);</snippet>
+<snippet group="C++" trigger="DrawDebug" id="UE_DrawDebugCapsule" complement="Capsule">DrawDebugCapsule(GetWorld(), FVector(0.f, 0.f, 0.f) , 200.f, 50.f, FRotator(0.f, 0.f, 0.f).Quaternion(), FColor::Purple, false, 99.f, 0, 2.f);</snippet>
+
+
+<snippet group="C++" trigger="for" id="UE_for_Iterator" complement="iterator">for ($TActorIterator$&lt;$APlayerStart$> it($GetWorld()$) ; it ; ++it) {
+    // #include "EngineUtils.h"  ....  TArray.Add(*it);
+    $$
+}</snippet>
+
+<snippet group="C++" trigger="UENUM" id="UE_UENUM" complement="toot">UENUM(BlueprintType)
+enum class E$Ename$ : uint8
+{
+    E_$Item$ UMETA(DisplayName="$DspName$"),
+    $$
+    E_Max UMETA(Hidden)
+};
+</snippet>
+<snippet group="C++" trigger="USTRUCT" id="UE_USTRUCT" complement="">USTRUCT(BlueprintType)
+struct F$StructName$
+{
+    GENERATED_USTRUCT_BODY()
+
+    F$StructName$() {
+        $Val1$ = 0;
+    }
+
+    UPROPERTY(BlueprintReadWrite, Category="$TOOT$")
+    int32 $Val1$;
+
+};</snippet>
+<snippet group="C++" trigger="UObject" id="UE_UObjectSubClz" complement="sub class">#pragma once
+
+#include "CoreMinimal.h"
+#include "UObject/NoExportTypes.h"
+#include "$Filename$.generated.h"
+//
+/**
+ *
+ */
+UCLASS( Blueprintable , Category = "TOOTzoe" )
+class $PrjName_API$ U$Filename$ : public UObject
+{
+        GENERATED_BODY()
+
+public:
+    // U$Filename$(const FObjectInitializer&lt; ObjectInitializer = FObjectInitializer::Get());
+public:
+    $$
+
+private:
+
+
+};
+</snippet>
+
+<snippet group="C++" trigger="AActor" id="UE_AActorSubClz" complement="actor header">
+#pragma once
+
+#include "CoreMinimal.h"
+#include "GameFramework/Actor.h"
+#include "$Filename$.generated.h"
+//
+/**
+ *
+ */
+UCLASS()
+class $PrjName_API$ A$Filename$ : public AActor
+{
+        GENERATED_BODY()
+
+public:
+    A$Filename$();
+    virtual void Tick(float DeltaTime) override;
+    $$
+
+protected:
+    virtual void BeginPlay() override;
+
+private:
+
+};
+</snippet>
+
+<snippet group="C++" trigger="AActor" id="UE_AActorSubClzCpp" complement="actor cpp">
+#include "$Filename$.h"
+
+//
+
+A$Filename$::A$Filename$()
+{
+	PrimaryActorTick.bCanEverTick = true;
+	$$
+}
+
+void A$Filename$::BeginPlay()
+{
+	Super::BeginPlay();
+}
+
+void A$Filename$::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+}
+
+</snippet>
+
+
+<snippet group="C++" trigger="OnHit" id="UE_OnHit" complement="">UFUNCTION()
+void On$Sphere$Hit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComponent,
+	FVector NormalImpulse, const FHitResult&amp; Hit);
+</snippet>
+<snippet group="C++" trigger="OnOverlap" id="UE_OnOverlap" complement="">UFUNCTION()
+void On$Sphere$BeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp,
+int32 OtherBodyIndex, bool bFromSweep, const FHitResult&amp; SweepResult);
+</snippet>
+
+
+
+
+
+<snippet group="C++" trigger="GAS_ATTRIBUTE_ACCESSORS_def" id="UE_GAS_ATTRIBUTE" complement="">#define GAS_ATTRIBUTE_ACCESSORS(ClassName, PropertyName) \\
+GAMEPLAYATTRIBUTE_PROPERTY_GETTER(ClassName, PropertyName) \\
+GAMEPLAYATTRIBUTE_VALUE_GETTER(PropertyName) \\
+GAMEPLAYATTRIBUTE_VALUE_SETTER(PropertyName) \\
+GAMEPLAYATTRIBUTE_VALUE_INITTER(PropertyName)
+</snippet>
+<snippet group="C++" trigger="lambda" id="UE_ADD_LAMBDA" complement="">auto $lambdaName$ = [&amp;]($uint32$ $para$){
+    $$
+};</snippet>
+
+</snippets>
