@@ -61,7 +61,7 @@ public class ${UPRO_BASENAME}Target : TargetRules
         public ${UPRO_BASENAME}Target(TargetInfo Target) : base(Target)
         {
                 Type = TargetType.Game;
-                DefaultBuildSettings = BuildSettingsVersion.V6;
+                DefaultBuildSettings = BuildSettingsVersion.V7;
                 IncludeOrderVersion = EngineIncludeOrderVersion.Unreal5_8;
                 ExtraModuleNames.Add("${UPRO_BASENAME}");
         }
@@ -80,7 +80,7 @@ public class ${UPRO_BASENAME}EditorTarget : TargetRules
         public ${UPRO_BASENAME}EditorTarget( TargetInfo Target) : base(Target)
         {
                 Type = TargetType.Editor;
-                DefaultBuildSettings = BuildSettingsVersion.V6;
+                DefaultBuildSettings = BuildSettingsVersion.V7;
                 IncludeOrderVersion = EngineIncludeOrderVersion.Unreal5_8;
                 ExtraModuleNames.Add("${UPRO_BASENAME}");
         }
@@ -167,6 +167,9 @@ echo $UE_FOLDER/Engine/Build/BatchFiles/RunUAT.command BuildCookRun -nop4 -utf8o
 echo
 echo ::  iOS shipping
 echo $UE_FOLDER/Engine/Build/BatchFiles/RunUAT.command BuildCookRun -nop4 -utf8output -nocompileeditor -skipbuildeditor -project=\"$UPRO_PATHNAME\" -unrealexe=$UE_FOLDER/Engine/Binaries/Mac/UnrealEditor.app/Contents/MacOS/UnrealEditor -platform=IOS -SkipCookingErrorSummary  -SkipcookingEditorContent -build -cook -stage -package -pak -iostore -compressed -prereqs -clientconfig=Shipping -nodebuginfo -nocompile -nocompileuat -createreleaseversion="ios_1.0" -archive -archivedirectory=\"$UEPRJROOT/tootbd/BaseReleaseShipping\"
+echo
+echo ::  iOS Archive
+echo  xcodebuild archive -workspace \"$UEPRJROOT/$UPRO_BASENAME \(IOS\).xcworkspace\" -scheme $UPRO_BASENAME -configuration Release -destination 'generic/platform=iOS'  -archivePath \"tootbd/IOS/$UPRO_BASENAME\"
 
 echo
 
@@ -175,7 +178,7 @@ echo $UE_FOLDER/Engine/Extras/ThirdPartyNotUE/libimobiledevice/Mac/ideviceinstal
 echo
 
 AND_FLAVOR="ASTC"
-echo :: Android dev , flavor=$AND_FLAVOR
+echo :: Android dev , flavor=$AND_FLAVOR   , others flavors : OpenXR , DXT , ETC2 ,  Multi \(combinate all\) ,
 echo $UE_FOLDER/Engine/Build/BatchFiles/RunUAT.command BuildCookRun -nop4 -utf8output -nocompileeditor -skipbuildeditor -project=\"$UPRO_PATHNAME\" -unrealexe=$UE_FOLDER/Engine/Binaries/Mac/UnrealEditor.app/Contents/MacOS/UnrealEditor -platform=Android -cookflavor=$AND_FLAVOR -SkipCookingErrorSummary  -SkipcookingEditorContent -build -cook -stage -package -pak -iostore -compressed -prereqs -clientconfig=Development -nocompile -nocompileuat -createreleaseversion="and_1.0" -archive -archivedirectory=\"$UEPRJROOT/tootbd/BaseRelease\"
 echo
 echo ::  Android shipping , flavor=$AND_FLAVOR

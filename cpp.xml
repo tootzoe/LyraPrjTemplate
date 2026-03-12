@@ -237,7 +237,8 @@ default:
 
 
 <snippet group="C++" trigger="Create" id="UE_CreateDefaultSub" complement="DefaultSubobject">CreateDefaultSubobject&lt;$cls$>(TEXT("$CompName$"));</snippet>
-<snippet group="C++" trigger="NewObject" id="UE_NEWOBJECT" complement="">NewObject&lt;$cls$>(this, MakeUniqueObjectName(this, $cls$::StaticClass()));</snippet>
+<snippet group="C++" trigger="NewObject" id="UE_NEWOBJECT1" complement="">NewObject&lt;$cls$>(this);</snippet>
+<snippet group="C++" trigger="NewObject" id="UE_NEWOBJECT2" complement="UniqName">NewObject&lt;$cls$>(this, MakeUniqueObjectName(this, $cls$::StaticClass()));</snippet>
 <snippet group="C++" trigger="LoadObject" id="UE_LoadObject" complement="">LoadObject&lt;$cls$>($this$, TEXT("$/Game/Clz/Clzname.Clzname$"));</snippet>
 <snippet group="C++" trigger="Object" id="UE_ObjectFinder" complement="Finder">static ConstructorHelpers::FObjectFinder&lt;$cls$> $tmp$Finder(TEXT("AssertType'/Game/path/Clzname.Clzname'")); // only called inside constructor</snippet>
 
@@ -251,10 +252,9 @@ default:
 <snippet group="C++" trigger="Create" id="UE_CREATEUOBJECT" complement="UObject">CreateUObject(this, &amp;ThisClass::$HandleFunc$)</snippet>
 
 <snippet group="C++" trigger="Create" id="UE_LAMBDA1" complement="WeakLambda">CreateWeakLambda(this,
-                                       [this]($bool$ $para1$){
+                                       [this $, varRef$]($bool$ $para1$){
                                        $$
-                                       }
-</snippet>
+                                       }</snippet>
 
 
 
