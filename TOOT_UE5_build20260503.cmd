@@ -5,7 +5,7 @@ setlocal
 SET UE_FOLDER=C:/UnrealEngine
 SET PROJECT=%~dp0
 
-echo "++++++++========= Ver: 2025-11-22 ===++++++++++++++"
+echo "++++++++========= Ver: 2026-05-03 ===++++++++++++++"
 echo  Current Dir:  %PROJECT%
 echo  UE_FOLDER Dir:  %UE_FOLDER%
 echo "++++++++=============================++++++++++++++"
@@ -225,6 +225,7 @@ EXIT /b 0
 ::
 :: >>>>>>>> Generate visual studio solution
 ::
+
 :GEN_MSVC_SLN
 echo >>>>>>>>> Generate MSVC solution ...... Start......
 
@@ -237,6 +238,7 @@ EXIT /b 0
 ::
 :: >>>>>>>> Quick Clean UE Project
 ::
+
 :CLEAN_UE_PRJ
 
 
