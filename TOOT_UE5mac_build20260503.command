@@ -8,7 +8,7 @@ UEPRJROOT="$(realpath $UEPRJROOT)"
 
 echo
 echo ">>>>>>>>>>  TOOTzoe.com UE5 utility script for MacOS <<<<<<<<<<<"
-echo "++++++++========= Ver: 2025-11-21 ===++++++++++++++"
+echo "++++++++========= Ver: 2026-05-03 ===++++++++++++++"
 echo "Using UE Root Dir:     $UE_FOLDER"
 echo "Current uproject Dir:  $UEPRJROOT"
 echo "++++++++=============================++++++++++++++"
@@ -24,6 +24,29 @@ UPRO_PATHNAME="$(ls $UEPRJROOT/*.uproject 2>/dev/null)"
 UPRO_BASENAME="$(BaseName $UPRO_PATHNAME .uproject)"
 TARGETNAME="${UPRO_BASENAME}Editor"
 
+
+if [[ "$1" == "clr" ]]; then
+    echo "::::::::::: Clean up the whole project from current directory -> $UEPRJROOT ...."
+    echo
+    echo "::::::::::: Clean up DerivedDataCache ...."
+    rm -rf ./DerivedDataCache
+    echo
+    echo "::::::::::: Clean up Saved ...."
+    rm -rf ./Saved
+    echo
+    echo "::::::::::: Clean up Intermediate ...."
+    find . -type d -name "Intermediate" -exec rm -rf {} +
+    echo
+    echo "::::::::::: Clean up Binaries ...."
+    find . -type d -name "Binaries" -exec rm -rf {} +
+    echo
+    echo "::::::::::: Clean up current project done!  .........................."
+    echo
+
+    exit 0
+fi
+
+
 if [ ! -f "$UPRO_PATHNAME" ]; then
     echo "Error!! No uproject found! .... Terminated...."
     sleep 999
@@ -35,6 +58,7 @@ if [[ "$1" == "gen" ]]; then
     sh "$UE_FOLDER"/Engine/Build/BatchFiles/Mac/GenerateProjectFiles.sh -project="$UPRO_PATHNAME" -game
     exit 0
 fi
+
 
 
 function create_empty_prj
@@ -153,7 +177,7 @@ echo :: Mac dev
 echo $UE_FOLDER/Engine/Build/BatchFiles/RunUAT.command BuildCookRun -nop4 -utf8output -nocompileeditor -skipbuildeditor -project=\"$UPRO_PATHNAME\" -unrealexe=$UE_FOLDER/Engine/Binaries/Mac/UnrealEditor.app/Contents/MacOS/UnrealEditor -platform=Mac -SkipCookingErrorSummary  -SkipcookingEditorContent -build -cook -stage -package -pak -iostore -compressed -prereqs -clientconfig=Development -nocompile -nocompileuat -createreleaseversion="mac_1.0" -archive -archivedirectory=\"$UEPRJROOT/tootbd/BaseRelease\"
 echo
 echo ::  Mac shipping
-echo $UE_FOLDER/Engine/Build/BatchFiles/RunUAT.command BuildCookRun -nop4 -utf8output -nocompileeditor -skipbuildeditor -project=\"$UPRO_PATHNAME\" -unrealexe=$UE_FOLDER/Engine/Binaries/Mac/UnrealEditor.app/Contents/MacOS/UnrealEditor -platform=Mac -SkipCookingErrorSummary  -SkipcookingEditorContent -build -cook -stage -package -pak -iostore -compressed -prereqs -clientconfig=Shipping -nodebuginfo -nocompile -nocompileuat -createreleaseversion="mac_1.0" -archive -archivedirectory=\"$UEPRJROOT/tootbd/BaseReleaseShipping\"
+echo $UE_FOLDER/Engine/Build/BatchFiles/RunUAT.command BuildCookRun -nop4 -utf8output -nocompileeditor -skipbuildeditor -project=\"$UPRO_PATHNAME\" -unrealexe=$UE_FOLDER/Engine/Binaries/Mac/UnrealEditor.app/Contents/MacOS/UnrealEditor -platform=Mac -SkipCookingErrorSummary  -SkipcookingEditorContent -build -cook -stage -package -pak -iostore -compressed -prereqs -distribution -clientconfig=Shipping -nodebuginfo -nocompile -nocompileuat -createreleaseversion="mac_1.0" -archive -archivedirectory=\"$UEPRJROOT/tootbd/BaseReleaseShipping\"
 
 echo
 echo ::  Mac Run app [ dev ]
@@ -163,10 +187,11 @@ echo
 
 
 echo :: iOS dev
-echo $UE_FOLDER/Engine/Build/BatchFiles/RunUAT.command BuildCookRun -nop4 -utf8output -nocompileeditor -skipbuildeditor -project=\"$UPRO_PATHNAME\" -unrealexe=$UE_FOLDER/Engine/Binaries/Mac/UnrealEditor.app/Contents/MacOS/UnrealEditor -platform=IOS -SkipCookingErrorSummary  -SkipcookingEditorContent -build -cook -stage -package -pak -iostore -compressed -prereqs -clientconfig=Development -nocompile -nocompileuat -createreleaseversion="ios_1.0" -archive -archivedirectory=\"$UEPRJROOT/tootbd/BaseRelease\"
+echo $UE_FOLDER/Engine/Build/BatchFiles/RunUAT.command BuildCookRun -nop4 -utf8output -nocompileeditor -skipbuildeditor -project=\"$UPRO_PATHNAME\" -unrealexe=$UE_FOLDER/Engine/Binaries/Mac/UnrealEditor.app/Contents/MacOS/UnrealEditor -platform=IOS -SkipCookingErrorSummary -build -cook -stage -package -pak -iostore -compressed -prereqs -clientconfig=Development -nocompile -nocompileuat -SkipcookingEditorContent  -createreleaseversion="ios_1.0"
 echo
 echo ::  iOS shipping
-echo $UE_FOLDER/Engine/Build/BatchFiles/RunUAT.command BuildCookRun -nop4 -utf8output -nocompileeditor -skipbuildeditor -project=\"$UPRO_PATHNAME\" -unrealexe=$UE_FOLDER/Engine/Binaries/Mac/UnrealEditor.app/Contents/MacOS/UnrealEditor -platform=IOS -SkipCookingErrorSummary  -SkipcookingEditorContent -build -cook -stage -package -pak -iostore -compressed -prereqs -clientconfig=Shipping -nodebuginfo -nocompile -nocompileuat -createreleaseversion="ios_1.0" -archive -archivedirectory=\"$UEPRJROOT/tootbd/BaseReleaseShipping\"
+#    no need archive, the xcachive file Generated in /Users/zoezoe/Library/Developer/Xcode/Archives automaticly
+echo $UE_FOLDER/Engine/Build/BatchFiles/RunUAT.command BuildCookRun -nop4 -utf8output -nocompileeditor -skipbuildeditor -project=\"$UPRO_PATHNAME\" -unrealexe=$UE_FOLDER/Engine/Binaries/Mac/UnrealEditor.app/Contents/MacOS/UnrealEditor -platform=IOS -SkipCookingErrorSummary -build -cook -stage -package -pak -iostore -compressed -prereqs -distribution -clientconfig=Shipping -nodebuginfo -nocompile -nocompileuat -SkipcookingEditorContent  -createreleaseversion="ios_1.0"
 echo
 echo ::  iOS Archive
 echo  xcodebuild archive -workspace \"$UEPRJROOT/$UPRO_BASENAME \(IOS\).xcworkspace\" -scheme $UPRO_BASENAME -configuration Release -destination 'generic/platform=iOS'  -archivePath \"tootbd/IOS/$UPRO_BASENAME\"
@@ -182,7 +207,7 @@ echo :: Android dev , flavor=$AND_FLAVOR   , others flavors : OpenXR , DXT , ETC
 echo $UE_FOLDER/Engine/Build/BatchFiles/RunUAT.command BuildCookRun -nop4 -utf8output -nocompileeditor -skipbuildeditor -project=\"$UPRO_PATHNAME\" -unrealexe=$UE_FOLDER/Engine/Binaries/Mac/UnrealEditor.app/Contents/MacOS/UnrealEditor -platform=Android -cookflavor=$AND_FLAVOR -SkipCookingErrorSummary  -SkipcookingEditorContent -build -cook -stage -package -pak -iostore -compressed -prereqs -clientconfig=Development -nocompile -nocompileuat -createreleaseversion="and_1.0" -archive -archivedirectory=\"$UEPRJROOT/tootbd/BaseRelease\"
 echo
 echo ::  Android shipping , flavor=$AND_FLAVOR
-echo $UE_FOLDER/Engine/Build/BatchFiles/RunUAT.command BuildCookRun -nop4 -utf8output -nocompileeditor -skipbuildeditor -project=\"$UPRO_PATHNAME\" -unrealexe=$UE_FOLDER/Engine/Binaries/Mac/UnrealEditor.app/Contents/MacOS/UnrealEditor -platform=Android -cookflavor=AND_FLAVOR -SkipCookingErrorSummary  -SkipcookingEditorContent -build -cook -stage -package -pak -iostore -compressed -prereqs -clientconfig=Shipping -nodebuginfo -nocompile -nocompileuat -createreleaseversion="and_1.0" -archive -archivedirectory=\"$UEPRJROOT/tootbd/BaseReleaseShipping\"
+echo $UE_FOLDER/Engine/Build/BatchFiles/RunUAT.command BuildCookRun -nop4 -utf8output -nocompileeditor -skipbuildeditor -project=\"$UPRO_PATHNAME\" -unrealexe=$UE_FOLDER/Engine/Binaries/Mac/UnrealEditor.app/Contents/MacOS/UnrealEditor -platform=Android -cookflavor=$AND_FLAVOR -SkipCookingErrorSummary  -SkipcookingEditorContent -build -cook -stage -package -pak -iostore -compressed -prereqs -distribution -clientconfig=Shipping -nodebuginfo -nocompile -nocompileuat -createreleaseversion="and_1.0" -archive -archivedirectory=\"$UEPRJROOT/tootbd/BaseReleaseShipping\"
 
 echo
 
