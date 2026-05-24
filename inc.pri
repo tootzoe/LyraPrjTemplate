@@ -346,6 +346,10 @@ INCLUDEPATH += $$UESRCROOT/../Plugins/VirtualProduction/DMX/DMXProtocol/Source/D
 ## Gameplay
 INCLUDEPATH += $$UESRCROOT/../Plugins/Runtime/GameplayStateTree/Source/GameplayStateTreeModule/Public
 INCLUDEPATH += $$UESRCROOT/../Plugins/Runtime/StateTree/Source/StateTreeModule/Public
+##
+## Animation
+INCLUDEPATH += $$UESRCROOT/../Plugins/Animation/ControlRig/Source/ControlRig/Public
+
 ## Pager2D
 INCLUDEPATH += $$UESRCROOT/../Plugins/2D/Paper2D/Source/Paper2D/Classes
 
