@@ -5,7 +5,7 @@ setlocal
 SET UE_FOLDER=C:/UnrealEngine
 SET PROJECT=%~dp0
 
-echo "++++++++========= Ver: 2026-05-03 ===++++++++++++++"
+echo "++++++++========= Ver: 2026-05-23 ===++++++++++++++"
 echo  Current Dir:  %PROJECT%
 echo  UE_FOLDER Dir:  %UE_FOLDER%
 echo "++++++++=============================++++++++++++++"
@@ -139,7 +139,7 @@ echo         public %PRJNAME%Target(TargetInfo Target) : base(Target) >> %TMP_FI
 echo         { >> %TMP_FILE%
 echo                 Type = TargetType.Game; >> %TMP_FILE%
 echo                 DefaultBuildSettings = BuildSettingsVersion.V7; >> %TMP_FILE%
-echo                 IncludeOrderVersion = EngineIncludeOrderVersion.Unreal5_9; >> %TMP_FILE%
+echo                 IncludeOrderVersion = EngineIncludeOrderVersion.Latest; >> %TMP_FILE%
 echo                 ExtraModuleNames.Add("%PRJNAME%"); >> %TMP_FILE%
 echo         } >> %TMP_FILE%
 echo } >> %TMP_FILE%
@@ -158,7 +158,7 @@ echo         public %PRJNAME%EditorTarget( TargetInfo Target) : base(Target) >> 
 echo         { >> %TMP_FILE%
 echo                 Type = TargetType.Editor; >> %TMP_FILE%
 echo                 DefaultBuildSettings = BuildSettingsVersion.V7; >> %TMP_FILE%
-echo                 IncludeOrderVersion = EngineIncludeOrderVersion.Unreal5_9; >> %TMP_FILE%
+echo                 IncludeOrderVersion = EngineIncludeOrderVersion.Latest; >> %TMP_FILE%
 echo                 ExtraModuleNames.Add("%PRJNAME%"); >> %TMP_FILE%
 echo         } >> %TMP_FILE%
 echo } >> %TMP_FILE%
