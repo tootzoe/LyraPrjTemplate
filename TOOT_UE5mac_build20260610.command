@@ -8,7 +8,7 @@ UEPRJROOT="$(realpath $UEPRJROOT)"
 
 echo
 echo ">>>>>>>>>>  TOOTzoe.com UE5 utility script for MacOS <<<<<<<<<<<"
-echo "++++++++========= Ver: 2026-05-24 ===++++++++++++++"
+echo "++++++++========= Ver: 2026-06-10 ===++++++++++++++"
 echo "Using UE Root Dir:     $UE_FOLDER"
 echo "Current uproject Dir:  $UEPRJROOT"
 echo "++++++++=============================++++++++++++++"
@@ -92,7 +92,7 @@ public class ${UPRO_BASENAME}Target : TargetRules
         public ${UPRO_BASENAME}Target(TargetInfo Target) : base(Target)
         {
                 Type = TargetType.Game;
-                DefaultBuildSettings = BuildSettingsVersion.V7;
+                DefaultBuildSettings = BuildSettingsVersion.V8;
                 IncludeOrderVersion = EngineIncludeOrderVersion.Latest;
                 ExtraModuleNames.Add("${UPRO_BASENAME}");
         }
@@ -111,7 +111,7 @@ public class ${UPRO_BASENAME}EditorTarget : TargetRules
         public ${UPRO_BASENAME}EditorTarget( TargetInfo Target) : base(Target)
         {
                 Type = TargetType.Editor;
-                DefaultBuildSettings = BuildSettingsVersion.V7;
+                DefaultBuildSettings = BuildSettingsVersion.V8;
                 IncludeOrderVersion = EngineIncludeOrderVersion.Latest;
                 ExtraModuleNames.Add("${UPRO_BASENAME}");
         }
