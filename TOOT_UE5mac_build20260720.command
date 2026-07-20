@@ -8,7 +8,7 @@ UEPRJROOT="$(realpath $UEPRJROOT)"
 
 echo
 echo ">>>>>>>>>>  TOOTzoe.com UE5 utility script for MacOS <<<<<<<<<<<"
-echo "++++++++========= Ver: 2026-06-10 ===++++++++++++++"
+echo "++++++++========= Ver: 2026-07-20 ===++++++++++++++"
 echo "Using UE Root Dir:     $UE_FOLDER"
 echo "Current uproject Dir:  $UEPRJROOT"
 echo "++++++++=============================++++++++++++++"
@@ -25,10 +25,12 @@ UPRO_PATHNAME="$(ls $UEPRJROOT/*.uproject 2>/dev/null)"
 UPRO_BASENAME="$(basename $UPRO_PATHNAME .uproject)"
 TARGETFULLNAME="$(find source/ -name "*Editor.Target.cs" -exec basename {} + )"
 TARGETNAME="$(basename  -s ".Target.cs" $TARGETFULLNAME )"
+GAMEMODULENAME="$(basename  -s "Editor" $TARGETNAME )"
 
 
-echo "UPRO_BASENAME :  $UPRO_BASENAME"
-echo "TARGETNAME :  $TARGETNAME"
+echo "UPRO_BASENAME :   $UPRO_BASENAME"
+echo "GAMEMODULENAME :  $GAMEMODULENAME"
+echo "TARGETNAME :      $TARGETNAME"
 echo "TARGETFULLNAME :  $TARGETFULLNAME"
 echo
 
@@ -92,7 +94,7 @@ public class ${UPRO_BASENAME}Target : TargetRules
         public ${UPRO_BASENAME}Target(TargetInfo Target) : base(Target)
         {
                 Type = TargetType.Game;
-                DefaultBuildSettings = BuildSettingsVersion.V8;
+                DefaultBuildSettings = BuildSettingsVersion.V9;
                 IncludeOrderVersion = EngineIncludeOrderVersion.Latest;
                 ExtraModuleNames.Add("${UPRO_BASENAME}");
         }
@@ -111,7 +113,7 @@ public class ${UPRO_BASENAME}EditorTarget : TargetRules
         public ${UPRO_BASENAME}EditorTarget( TargetInfo Target) : base(Target)
         {
                 Type = TargetType.Editor;
-                DefaultBuildSettings = BuildSettingsVersion.V8;
+                DefaultBuildSettings = BuildSettingsVersion.V9;
                 IncludeOrderVersion = EngineIncludeOrderVersion.Latest;
                 ExtraModuleNames.Add("${UPRO_BASENAME}");
         }
@@ -206,8 +208,8 @@ echo  xcodebuild archive -workspace \"$UEPRJROOT/$UPRO_BASENAME \(IOS\).xcworksp
 echo
 
 echo ::  install app for iOS dev  ,  ./ideviceinstaller -h  for more help , more tools path: $UE_FOLDER/Engine/Extras/ThirdPartyNotUE/libimobiledevice/Mac/
-echo $UE_FOLDER/Engine/Extras/ThirdPartyNotUE/libimobiledevice/Mac/ideviceinstaller -i \"$UEPRJROOT/Saved/StagedBuilds/IOS/${UPRO_BASENAME}.app\"
-echo $UE_FOLDER/Engine/Extras/ThirdPartyNotUE/libimobiledevice/Mac/ideviceinstaller -i \"$UEPRJROOT/Saved/StagedBuilds/IOS/${UPRO_BASENAME}-IOS-Shipping.app\"
+echo $UE_FOLDER/Engine/Extras/ThirdPartyNotUE/libimobiledevice/Mac/ideviceinstaller -i \"$UEPRJROOT/Saved/StagedBuilds/IOS/${GAMEMODULENAME}.app\"
+echo $UE_FOLDER/Engine/Extras/ThirdPartyNotUE/libimobiledevice/Mac/ideviceinstaller -i \"$UEPRJROOT/Saved/StagedBuilds/IOS/${GAMEMODULENAME}-IOS-Shipping.app\"
 echo
 
 AND_FLAVOR="ASTC"
