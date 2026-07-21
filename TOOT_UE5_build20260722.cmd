@@ -5,7 +5,7 @@ setlocal
 SET UE_FOLDER=C:/UnrealEngine
 SET PROJECT=%~dp0
 
-echo "++++++++========= Ver: 2026-06-10 ===++++++++++++++"
+echo "++++++++========= Ver: 2026-07-22 ===++++++++++++++"
 echo  Current Dir:  %PROJECT%
 echo  UE_FOLDER Dir:  %UE_FOLDER%
 echo "++++++++=============================++++++++++++++"
@@ -56,10 +56,10 @@ echo:
 
 SET AND_FLAVOR=ASTC
 echo :: Android dev , flavor=%AND_FLAVOR%
-echo %UE_FOLDER%/Engine/Build/BatchFiles/RunUAT.bat BuildCookRun -verbose -nop4 -utf8output -nocompileeditor -skipbuildeditor -project="%PRJNAMEPATH%" -unrealexe="%UE_FOLDER%\Engine\Binaries\Win64\UnrealEditor-Cmd.exe" -platform=Android -cookflavor=%AND_FLAVOR% -SkipCookingErrorSummary  -SkipcookingEditorContent -build -cook -stage -package -pak -iostore -compressed -prereqs -clientconfig=Development -nocompile -nocompileuat -createreleaseversion="and_1.0" -archive -archivedirectory="%PROJECT%tootbd/BaseRelease"
+echo %UE_FOLDER%/Engine/Build/BatchFiles/RunUAT.bat BuildCookRun -verbose -nop4 -utf8output -nocompileeditor -skipbuildeditor -project="%PRJNAMEPATH%" -unrealexe="%UE_FOLDER%\Engine\Binaries\Win64\UnrealEditor-Cmd.exe" -platform=Android -cookflavor=%AND_FLAVOR% -SkipCookingErrorSummary -build -cook -stage -package -pak -iostore -compressed -prereqs -clientconfig=Development -nocompile -nocompileuat  -SkipcookingEditorContent -createreleaseversion="and_1.0" -archive -archivedirectory="%PROJECT%tootbd/BaseRelease"
 echo:
 echo ::  Android shipping , flavor=%AND_FLAVOR%
-echo %UE_FOLDER%/Engine/Build/BatchFiles/RunUAT.bat BuildCookRun -verbose -nop4 -utf8output -nocompileeditor -skipbuildeditor -project="%PRJNAMEPATH%" -unrealexe="%UE_FOLDER%\Engine\Binaries\Win64\UnrealEditor-Cmd.exe" -platform=Android -cookflavor=%AND_FLAVOR% -SkipCookingErrorSummary  -SkipcookingEditorContent -build -cook -stage -package -pak -iostore -compressed -prereqs -distribution -clientconfig=Shipping -nodebuginfo -nocompile -nocompileuat -createreleaseversion="and_1.0" -archive -archivedirectory="%PROJECT%tootbd/BaseReleaseShipping"
+echo %UE_FOLDER%/Engine/Build/BatchFiles/RunUAT.bat BuildCookRun -verbose -nop4 -utf8output -nocompileeditor -skipbuildeditor -project="%PRJNAMEPATH%" -unrealexe="%UE_FOLDER%\Engine\Binaries\Win64\UnrealEditor-Cmd.exe" -platform=Android -cookflavor=%AND_FLAVOR% -SkipCookingErrorSummary -build -cook -stage -package -pak -iostore -compressed -prereqs -distribution -clientconfig=Shipping -nodebuginfo -nocompile -nocompileuat -SkipcookingEditorContent -createreleaseversion="and_1.0" -archive -archivedirectory="%PROJECT%tootbd/BaseReleaseShipping"
 
 echo:
 
@@ -138,7 +138,7 @@ echo { >> %TMP_FILE%
 echo         public %PRJNAME%Target(TargetInfo Target) : base(Target) >> %TMP_FILE%
 echo         { >> %TMP_FILE%
 echo                 Type = TargetType.Game; >> %TMP_FILE%
-echo                 DefaultBuildSettings = BuildSettingsVersion.V8; >> %TMP_FILE%
+echo                 DefaultBuildSettings = BuildSettingsVersion.V9; >> %TMP_FILE%
 echo                 IncludeOrderVersion = EngineIncludeOrderVersion.Latest; >> %TMP_FILE%
 echo                 ExtraModuleNames.Add("%PRJNAME%"); >> %TMP_FILE%
 echo         } >> %TMP_FILE%
@@ -157,7 +157,7 @@ echo { >> %TMP_FILE%
 echo         public %PRJNAME%EditorTarget( TargetInfo Target) : base(Target) >> %TMP_FILE%
 echo         { >> %TMP_FILE%
 echo                 Type = TargetType.Editor; >> %TMP_FILE%
-echo                 DefaultBuildSettings = BuildSettingsVersion.V8; >> %TMP_FILE%
+echo                 DefaultBuildSettings = BuildSettingsVersion.V9; >> %TMP_FILE%
 echo                 IncludeOrderVersion = EngineIncludeOrderVersion.Latest; >> %TMP_FILE%
 echo                 ExtraModuleNames.Add("%PRJNAME%"); >> %TMP_FILE%
 echo         } >> %TMP_FILE%
